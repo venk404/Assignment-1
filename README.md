@@ -23,7 +23,7 @@ This project is a simple Student Management API built using FastAPI. It allows f
 1) Clone the repository:
 
 ```bash
-  git clone https://github.com/venk404/SRE--RestAPI.git
+  git clone https://github.com/venk404/Assignment-1.git
 ```
 2) Docker Componse for Postgres Installation:
 ```bash
