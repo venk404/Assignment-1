@@ -1,0 +1,31 @@
+version: '3.8'
+
+networks:
+  dem:
+    driver: bridge
+    name: dem
+
+services:
+  DB:
+    image: postgres
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    ports:
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"  # make sure you don't have another container running on the same port
+    networks:
+      - dem
+
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - dem
+      
